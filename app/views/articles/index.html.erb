@@ -1,0 +1,38 @@
+<h1>Listing articles for <%=current_user.email%></h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="3"></th>
+  </tr>
+  <button type="button" class="btn btn-outline-primary text-info" ><%= link_to 'New article', new_article_path %></button>
+
+  </thead>
+  <tbody>
+  <tr>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><button type="button" class="btn btn-outline-light text-info" > <%= link_to 'Show', article_path(article) %></button>
+
+      </td>
+      <td><button type="button" class="btn btn-outline-secondary text-info"> <%= link_to 'Edit', edit_article_path(article) %></button>
+       </td>
+      <td><button type="button" class="btn btn-outline-danger text-info"><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        </td>
+    </tr>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+<table>
+  <tr>
+
+
+  </tr>
+
+
+
+</table>

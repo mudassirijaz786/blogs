@@ -1,0 +1,2 @@
+class ScafolledController < ApplicationController
+end

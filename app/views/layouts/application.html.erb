@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Blog" %></title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Blog" %></title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+
+
+
+  <%= javascript_include_tag "application" %>
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+  <![endif]-->
+</head>
+<body>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <nav class="navbar navbar-light bg-light">
+        <h2 class="col-lg-10">Blog App</h2>
+
+
+
+        <% if user_signed_in? %>
+
+            <div class="col-lg-1">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+            </div>
+
+        <% else %>
+
+            <div class="col-lg-1">
+              <%= link_to('Login', new_user_session_path) %>
+            </div>
+
+
+
+
+
+        <% end %>
+        <div class="col-lg-1">
+          <%= link_to('Sign up', new_user_registration_path) %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to('Login', new_user_session_path) %>
-              </li>
-            <% end %>
+      </nav>
+      <%= bootstrap_flash %>
+      <%= yield %>
+    </div>
 
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
+  </div><!--/span-->
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <h1 class="font-weight-light">Vertically Centered Masthead Content</h1>
+            <p class="lead">A great starter layout for a landing page</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+  <footer class="botton">
+    <p>&copy; Company 2019</p>
+  </footer>
+</div><!--/row-->
 
 
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
-  </body>
+</body>
 </html>

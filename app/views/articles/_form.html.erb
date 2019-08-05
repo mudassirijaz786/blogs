@@ -2,20 +2,19 @@
 
   <% if @article.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@article.errors.count, "error") %>
         <div class="alert alert-info" role="alert">
-          This is a info alert—check it out!
+          <%= pluralize(@article.errors.count, "error") %>
+          prohibited this article from being saved:
         </div>
-       
-      </h2>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <div class="alert alert-danger" role="alert">
-            <%= msg %>
-          </div>
-        <% end %>
-      </ul>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+              <div >
+                <%= msg %>
+              </div>
+            <% end %>
+          </ul>
+        </div>
     </div>
   <% end %>
 <div >
@@ -30,8 +29,9 @@
     <label for="exampleInputEmail1">Text for article</label>
     <%= form.text_area :text,class: "form-control", placeholder: "Please enter text about article" %>
   </div>
-  <p>
-    <%= form.submit %>
-  </p>
+ <div>
+   <%= form.submit class: "btn btn-outline-primary "%>
+ </div>
+
 
 <% end %>

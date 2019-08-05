@@ -1,18 +1,25 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="container-fluid">
+  <div class="card mb-5" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">Title</h5>
+      <p class="card-text text-muted"><%= @article.title %></p>
+      <h6 class="card-subtitle mb-2">Text</h6>
+      <p class="card-text text-muted"> <%= @article.text %></p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+    </div>
+  </div>
+  <div>
+    <h2>Comments</h2>
+    <%= render @article.comments %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+    <h2 class="mb-5">Add a comment:</h2>
+    <%= render 'comments/form' %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+    <div class="mt-4">
+      <%= link_to 'Edit', articles_path , :class=> "btn btn-outline-info"%> | <%= link_to 'Back', articles_path , :class=> "btn btn-outline-primary"%>
+    </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+  </div>
+</div>
+</div>
+

@@ -1,37 +1,43 @@
-<%= form_with model: @article, local: true do |form| %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <%= form_with model: @article, local: true do |form| %>
 
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-        <div class="alert alert-info" role="alert">
-          <%= pluralize(@article.errors.count, "error") %>
-          prohibited this article from being saved:
+        <% if @article.errors.any? %>
+          <div id="error_explanation">
+            <div class="alert alert-info" role="alert">
+              <%= pluralize(@article.errors.count, "error") %>
+              prohibited this article from being saved:
+            </div>
+            <div class="alert alert-danger" role="alert">
+              <ul>
+                <% @article.errors.full_messages.each do |msg| %>
+                  <div >
+                    <%= msg %>
+                  </div>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <div >
+
+
         </div>
-        <div class="alert alert-danger" role="alert">
-          <ul>
-            <% @article.errors.full_messages.each do |msg| %>
-              <div >
-                <%= msg %>
-              </div>
-            <% end %>
-          </ul>
+        <div class="form-group">
+          <label for="label">Title</label>
+          <%= form.text_field :title,class: "form-control", placeholder: "Please enter title" %>
         </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Text for article</label>
+          <%= form.text_area :text,class: "form-control", placeholder: "Please enter text about article" %>
+        </div>
+        <div>
+          <%= form.submit class: "btn btn-outline-primary "%>
+        </div>
+
+
+      <% end %>
     </div>
-  <% end %>
-<div >
-
-
+  </div>
 </div>
-  <div class="form-group">
-    <label for="label">Title</label>
-    <%= form.text_field :title,class: "form-control", placeholder: "Please enter title" %>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Text for article</label>
-    <%= form.text_area :text,class: "form-control", placeholder: "Please enter text about article" %>
-  </div>
- <div>
-   <%= form.submit class: "btn btn-outline-primary "%>
- </div>
-
-
-<% end %>

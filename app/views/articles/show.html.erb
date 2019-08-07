@@ -1,25 +1,31 @@
 <div class="container-fluid">
-  <div class="card mb-5" style="width: 30rem;">
-    <div class="card-body">
-      <h5 class="card-title">Title</h5>
-      <p class="card-text text-muted"><%= @article.title %></p>
-      <h6 class="card-subtitle mb-2">Text</h6>
-      <p class="card-text text-muted"> <%= @article.text %></p>
-
+  <div class="row justify-content-center">
+    <div class="card mb-5 mt-3" style="width: 30rem;">
+      <h2 class="text-center">Article</h2>
+      <div class="card-body">
+        <h5 class="card-title">Title</h5>
+        <p class="card-text text-muted"><%= @article.title %></p>
+        <h6 class="card-subtitle mb-2">Text</h6>
+        <p class="card-text text-muted"> <%= @article.text %></p>
+      </div>
     </div>
   </div>
-  <div>
-    <h2>Comments</h2>
-    <%= render @article.comments %>
-
-    <h2 class="mb-5">Add a comment:</h2>
-    <%= render 'comments/form' %>
-
-    <div class="mt-4">
-      <%= link_to 'Edit', articles_path , :class=> "btn btn-outline-info"%> | <%= link_to 'Back', articles_path , :class=> "btn btn-outline-primary"%>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <h2 class="text-center">Comments</h2>
+      <%= render @article.comments %>
+      <h2 class="mb-5 text-center">Add a comment:</h2>
+      <%= render 'comments/form' %>
     </div>
-
+  </div>
+  <div class="row justify-content-center ">
+    <div class="col-lg-5 mt-4">
+      <%= link_to 'Edit', articles_path , :class=> "btn btn-outline-info"%>
+      <%= link_to 'Back', articles_path , :class=> "btn btn-outline-primary"%>
+    </div>
   </div>
 </div>
-</div>
+
+
+
 

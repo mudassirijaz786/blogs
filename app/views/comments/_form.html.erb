@@ -1,16 +1,22 @@
-<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-  <div class="form-group">
-    <label for="commentername">Commenter name</label>
-    <%= form.text_field :commenter,class: "form-control", placeholder: "Please enter commenter name" %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+        <div class="form-group">
+          <label for="commentername">Commenter name</label>
+          <%= form.text_field :commenter,class: "form-control", placeholder: "Please enter commenter name" %>
+        </div>
+        <div class="form-group">
+          <label for="comment">Text for comment</label>
+          <%= form.text_area :body,class: "form-control", placeholder: "Please enter text about comment" %>
+        </div>
+        <div>
+          <%= form.submit class: "btn btn-outline-primary "%>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="comment">Text for comment</label>
-    <%= form.text_area :body,class: "form-control", placeholder: "Please enter text about comment" %>
-  </div>
-  <div>
-    <%= form.submit class: "btn btn-outline-primary "%>
-  </div>
-<% end %>
+</div>
 
 
 

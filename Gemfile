@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 # gem 'twitter-bootstrap-rails'
 # gem 'devise-bootstrap-views'
+gem 'omniauth'
+
+gem 'omniauth-facebook'
 
 
 # Use CoffeeScript for .coffee assets and views

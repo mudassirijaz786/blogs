@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controller:{
-      confirmations: "confirmations"
-  }
+
+  devise_for :users, controller: { confirmations: "confirmations", omniauth_callbacks: 'users/omniauth_callbacks' }
+
   get 'welcome/index'
   # get 'articles/new'
   resources :articles do

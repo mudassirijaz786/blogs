@@ -1,6 +1,5 @@
 <div class="form-group">
   <%- if controller_name != 'sessions' %>
-    <h5>Already have an account? Just click on login</h5>
     <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
   <% end -%>
 

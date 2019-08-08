@@ -5,8 +5,13 @@
         <div class="col-12 text-center">
           <h1 class="font-weight-light">Vertically Centered Masthead Content</h1>
           <p class="lead">A great starter layout for a landing page</p>
+
         </div>
       </div>
     </div>
   </header>
 <% end %>
+
+<%if user_signed_in? %>
+  <p class="alert alert-light">please confirm your email and then login</p>
+<%end %>

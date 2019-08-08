@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controller:{
+      confirmations: "confirmations"
+  }
   get 'welcome/index'
   # get 'articles/new'
   resources :articles do
